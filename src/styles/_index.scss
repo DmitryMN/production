@@ -1,0 +1,10 @@
+@use "./variables/global";
+@use "./normalize";
+@use "./themes/dark";
+
+.app {
+    background-color: #e6dfdfb2;
+    color: global.$color-main;
+    font: global.$font-m;
+    min-height: 100vh;
+}
