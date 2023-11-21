@@ -7,9 +7,11 @@
         "jsx": "react-jsx",
         "allowJs": true,
         "moduleResolution": "node",
+        "baseUrl": "src",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true
     },
+    "include": ["src"],
     "ts-node": {
         "compilerOptions": {
             "module": "CommonJS"
