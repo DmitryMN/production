@@ -14,7 +14,7 @@ export const buildLoaders = ({ isDev }: BuildOptions): webpack.RuleSetRule[] => 
                     modules: {
                         auto: (resourcePath: string) => resourcePath.includes("module."),
                         localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64:5]",
-                    }
+                    },
                 }
             },
             "sass-loader",
