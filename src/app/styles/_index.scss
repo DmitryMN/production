@@ -3,10 +3,14 @@
 @use "./themes/dark";
 @use "./themes/light";
 
+html,
+body {
+    font: var(--font-m);
+}
+
 .app {
+    width: 100%;
     background: var(--bg-color);
     color: var(--primary-color);
-    font: var(--font-m);
-    width: 100%;
     min-height: 100vh;
 }
