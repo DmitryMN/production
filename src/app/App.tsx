@@ -9,12 +9,11 @@ import { Navbar } from "widgets/Navbar";
 
 const App: React.FC<any> = () => {
 
-  const { theme, changeTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Navbar className={theme}/>
-      <button onClick={changeTheme}>{theme === Theme.DARK ? "Normal" : "Dark"}</button>
+      <Navbar className={theme} />
       <AppRouter />
     </div>
   )
