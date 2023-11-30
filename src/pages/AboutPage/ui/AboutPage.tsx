@@ -1,8 +1,14 @@
-import React from 'react'
+import React from "react";
+import { useTranslation } from "react-i18next";
 
-const AboutPage = () => {
+const AboutPage: React.FC = () => {
+
+  const { t } = useTranslation();
+
   return (
-    <div>AboutPage</div>
+    <div>
+      {t("About page")}
+    </div>
   )
 }
 
