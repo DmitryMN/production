@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
-import { AboutPage } from "pages/AboutPage";
-import { MainPage } from "pages/MainPage";
+import React, { ReactNode } from 'react';
+import { AboutPage } from 'pages/AboutPage';
+import { MainPage } from 'pages/MainPage';
 
 export enum AppRoutes {
-    MAIN = "/",
-    ABOUT = "/about"
+    MAIN = '/',
+    ABOUT = '/about'
 }
 
 export interface RouteConfigProps {
@@ -22,4 +22,3 @@ export const routeConfig: RouteConfigProps[] = [
         element: <AboutPage />
     },
 ]
-
