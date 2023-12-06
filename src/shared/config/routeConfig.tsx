@@ -1,10 +1,12 @@
 import React, { ReactNode } from 'react';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
+import { NotFoundPage } from 'pages/NotFoundPage';
 
 export enum AppRoutes {
     MAIN = '/',
-    ABOUT = '/about'
+    ABOUT = '/about',
+    NOT_FOUND = '*'
 }
 
 export interface RouteConfigProps {
@@ -21,4 +23,8 @@ export const routeConfig: RouteConfigProps[] = [
         path: AppRoutes.ABOUT,
         element: <AboutPage />
     },
+    {
+        path: AppRoutes.NOT_FOUND,
+        element: <NotFoundPage />
+    }
 ]
