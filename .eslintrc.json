@@ -38,6 +38,7 @@
         "@typescript-eslint/consistent-type-imports": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-misused-promises": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
         "no-unneeded-ternary": "off",
         "quotes": "off",
         "comma-spacing": "off",
@@ -61,7 +62,6 @@
         "import/extensions": "off",
         "import/no-extraneous-dependencies": "off",
         "no-underscore-dangle": "off",
-        "react/jsx-indent": "off"
-    
+        "react/jsx-indent": "off"    
     }
 }
