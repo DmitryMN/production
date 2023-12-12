@@ -1,3 +1,4 @@
 **/*.scss
 **/*.svg
-jest.config.ts
+jest/
+node_modules/
