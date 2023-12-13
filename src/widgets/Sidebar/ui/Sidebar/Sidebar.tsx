@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import style from './Sidebar.module.scss';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { Button } from 'shared/ui/Button/Button';
@@ -17,7 +17,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
   }
 
   return (
-    <div className={classNames(style.sidebar, { [style.collapsed]: collapsed }, [className])}>
+    <div data-testid={'sidebar'} className={classNames(style.sidebar, { [style.collapsed]: collapsed }, [className])}>
       <Button onClick={changeHandler}>tog</Button>
       <div className={style.switchersWrap}>
         <LangSwitcher className={style.switchLang} />

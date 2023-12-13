@@ -128,6 +128,7 @@ const config: Config = {
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   moduleNameMapper: {
     '\\.(scss)$': 'identity-obj-proxy',
+    '\\.svg': '<rootDir>/config/jest/svgMock.tsx',
   },
 
   // A list of paths to directories that Jest should use to search for files in

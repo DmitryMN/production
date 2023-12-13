@@ -1,5 +1,5 @@
 import React from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import './PageError.scss';
 
 interface PageErrorProps {
