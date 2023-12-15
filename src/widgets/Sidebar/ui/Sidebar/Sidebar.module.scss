@@ -8,7 +8,6 @@
 .collapsed {
     width: var(--sidebar-collapsed);    
 }
-
 .switchersWrap {
     position: absolute;
     display: flex;
@@ -16,9 +15,25 @@
     bottom: 20px;
     margin-left: 15px;
 }
-
 .switchLang {
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
+}
+.collapseBtn {
+    position: absolute;
+    right: -21px;
+    border: none;
+    background-color: var(--inverted-bg);
+}
+.links {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+.navLink {
+    font-weight: 700;
+}
+.navLink:hover {
+    opacity: 0.6;
 }

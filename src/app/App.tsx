@@ -15,13 +15,15 @@ const App: React.FC<any> = () => {
         <Navbar className={theme} />
         <div className='content-page'>
           <Sidebar />
-          <div className='page-wrapper'>
-            <AppRouter />
+          <div className='main'>
+            <div className='wrapper'>
+              <AppRouter />
+            </div>
           </div>
         </div>
       </Suspense>
     </div>
-  )
-}
+  );
+};
 
 export default App;
