@@ -28,7 +28,7 @@
     ],
     "ignorePatterns": [".scss"],
     "rules": {
-        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/semi": "always",
         "@typescript-eslint/promise-function-async": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
