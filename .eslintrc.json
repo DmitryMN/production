@@ -40,6 +40,7 @@
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/consistent-type-exports": "off",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
         "no-unneeded-ternary": "off",
