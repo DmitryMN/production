@@ -2,3 +2,4 @@
 **/*.svg
 jest/
 node_modules/
+json-server/

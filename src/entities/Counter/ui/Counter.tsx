@@ -2,11 +2,11 @@ import React from 'react';
 import { counterActions } from '../model/slice/counterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button/Button';
-import { CounterChema } from '../model/types/CounterChema';
+import { getCounter } from '../model/selectors/getCounter/getCounter';
 
 export const Counter = () => {
     const dispatch = useDispatch();
-    const counterValue = useSelector((state: CounterChema) => { return state.value; });
+    const { value } = useSelector(getCounter);
 
     const increment = () => {
         dispatch(counterActions.increment());
@@ -18,7 +18,7 @@ export const Counter = () => {
 
     return (
         <div>
-            <h1>Value: {counterValue}</h1>
+            <h1>Value: {value}</h1>
             <Button onClick={increment}>increment</Button>
             <Button onClick={decrement}>decrement</Button>
         </div>
