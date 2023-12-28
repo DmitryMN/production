@@ -19,8 +19,10 @@ export const Counter = () => {
     return (
         <div>
             <h1>Value: {value}</h1>
-            <Button onClick={increment}>increment</Button>
-            <Button onClick={decrement}>decrement</Button>
+            <div style={{ display: 'flex', gap: '5px' }}>
+                <Button onClick={increment}>increment</Button>
+                <Button onClick={decrement}>decrement</Button>
+            </div>
         </div>
     );
 };

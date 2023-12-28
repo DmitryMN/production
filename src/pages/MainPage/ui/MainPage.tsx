@@ -11,7 +11,7 @@ const MainPage: React.FC = () => {
       }
       <Counter />
     </div>
-  )
-}
+  );
+};
 
 export default MainPage;
