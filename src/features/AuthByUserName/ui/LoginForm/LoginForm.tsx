@@ -10,7 +10,6 @@ interface LoginFormProps {
 }
 
 export const LoginForm: React.FC<LoginFormProps> = ({ className }) => {
-    console.log('render loginform');
     const { t } = useTranslation();
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
@@ -25,7 +24,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ className }) => {
 
     return (
         <div className={classNames(style.loginForm, {} , [className])}>
-            <Input value={userName} onChange={userNameHandler} placeHolder={'*Username'} />
+            <Input value={userName} onChange={userNameHandler} placeHolder={'*Username'} autoFocus={true}/>
             <Input value={password} onChange={passwordHandler} placeHolder={'*Password'} />
             <Button className={style.button}>
                 {t('Login')}
