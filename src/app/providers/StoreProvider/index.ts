@@ -1,9 +1,9 @@
 import { StoreProvider } from './ui/StoreProvider';
 import { createReduxStore } from './config/store';
-import { StateChema } from './config/StateShema';
+import { StateSchema } from './config/StateSchema';
 
 export {
     StoreProvider,
     createReduxStore,
-    StateChema,
+    StateSchema,
 };
