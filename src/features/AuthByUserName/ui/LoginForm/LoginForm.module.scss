@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     width: 350px;
-    height: 125px;
+    max-height: 260px;
 }
 
 input {
     margin-top: 15px;
+    line-height: 1.2rem;
 }
 
 .button {

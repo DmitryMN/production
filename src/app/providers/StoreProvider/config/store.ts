@@ -11,12 +11,13 @@ export const createReduxStore = (initialState: StateSchema) => {
         loginForm: loginReducer
     };
 
-    return configureStore<StateSchema>({
+    const store = configureStore<StateSchema>({
         reducer: rootReducers,
         devTools: __IS_DEV__,
         preloadedState: initialState,
     });
+
+    return store;
 };
 
-// export type RootState = ReturnType<typeof store.getState>;
-// export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

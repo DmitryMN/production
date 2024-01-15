@@ -1,7 +1,7 @@
-@use "./variables/global";
 @use "./normalize";
 @use "./themes/dark";
 @use "./themes/light";
+@use "./variables/global";
 
 html,
 body {

@@ -11,7 +11,12 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
     'login/loginByUsername',
     async (authData, { rejectWithValue }) => {
         try {
-            const response = await axios.post<User>('http://localhost:8000/login', authData);
+            const requestHeader = {
+                headers: {
+                    authorization: '123'
+                }
+            };
+            const response = await axios.post<User>('http://localhost:8000/login', authData, requestHeader);
             if (!response.data) {
                 throw new Error();
             }

@@ -1,0 +1,23 @@
+.wrap {
+    margin: 0 auto;
+}
+
+.title {
+    font: var(--font-l);
+    color: var(--modal-c);
+}
+
+.text {
+    font: var(--font-m);
+    color: var(--modal-c);
+}
+
+.error {
+    .title {
+        color: var(--red-light);
+    }
+
+    .text {
+        color: var(--red-dark);
+    }
+}
