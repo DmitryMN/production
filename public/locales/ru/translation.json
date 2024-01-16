@@ -4,5 +4,9 @@
     "language": "рус",
     "Page not found": "Страница не найдена",
     "Unexpected error": "Непредвиденная ошибка",
-    "Login": "Войти"
+    "Login": "Вход",
+    "Logout": "Выход",
+    "Authorization error": "Неверный логин или пароль",
+    "Main": "Главная",
+    "About": "О нас"
 }

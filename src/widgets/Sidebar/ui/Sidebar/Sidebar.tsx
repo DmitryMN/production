@@ -8,6 +8,7 @@ import { AppLink, AppLinksTheme } from 'shared/ui/AppLink/AppLink';
 import { AppRoutes } from 'shared/config/routeConfig';
 import AboutIcon from 'shared/assets/icons/about.svg';
 import HomeIcon from 'shared/assets/icons/home.svg';
+import { useTranslation } from 'react-i18next';
 
 interface SidebarProps {
   className?: string;
@@ -15,6 +16,7 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const { t } = useTranslation();
 
   const changeHandler = () => {
     setCollapsed((prev) => !prev);
@@ -26,11 +28,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
       <div className={style.links}>
         <AppLink theme={AppLinksTheme.PRIMARY} className={style.navLink} to={AppRoutes.MAIN}>
           <HomeIcon className={style.icon} />
-          <p>Main</p>
+          <p>{t('Main')}</p>
         </AppLink>
         <AppLink theme={AppLinksTheme.PRIMARY} className={style.navLink} to={AppRoutes.ABOUT}>
           <AboutIcon className={style.icon} />
-          <p>About</p>
+          <p>{t('About')}</p>
         </AppLink>
       </div>
       <div className={style.switchersWrap}>

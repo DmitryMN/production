@@ -11,7 +11,7 @@ interface TextProps {
     className?: string;
     title?: string;
     text?: string;
-    theme?: TextTheme
+    theme?: TextTheme;
 }
 
 export const Text: React.FC<TextProps> = ({ className, title, text, theme }) => {

@@ -35,7 +35,7 @@ export const LoginForm: React.FC<LoginFormProps> = memo(({ className }: LoginFor
 
     return (
         <div className={classNames(style.loginForm, {}, [className])}>
-            <Text title={'Авторизация'}/>
+            <Text title={t('Login')}/>
             {error && <Text text={error} theme={TextTheme.ERROR} />}
             <Input value={username} onChange={userNameHandler} placeHolder={'*Username'} autoFocus={true} />
             <Input value={password} onChange={passwordHandler} placeHolder={'*Password'} />

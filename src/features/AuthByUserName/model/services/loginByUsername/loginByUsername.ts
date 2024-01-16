@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { User } from 'entities/User';
+import { User, userActions } from 'entities/User';
+import i18n from 'shared/config/i18n/i18n';
+import USER_LOCALSTORAGE from 'shared/const/localStorage';
 
 interface LoginByUsernameProps {
     username: string;
@@ -9,7 +11,7 @@ interface LoginByUsernameProps {
 
 export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string; }>(
     'login/loginByUsername',
-    async (authData, { rejectWithValue }) => {
+    async (authData, { rejectWithValue, dispatch }) => {
         try {
             const requestHeader = {
                 headers: {
@@ -20,9 +22,13 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
             if (!response.data) {
                 throw new Error();
             }
+
+            localStorage.setItem(USER_LOCALSTORAGE, JSON.stringify(response.data));
+            dispatch(userActions.setAuthUser(response.data));
+
             return response.data;
         } catch (e) {
-            return rejectWithValue('Authorization error');
+            return rejectWithValue(i18n.t('Authorization error'));
         }
     },
 );
