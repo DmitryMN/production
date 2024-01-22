@@ -2,20 +2,24 @@ import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { StateSchema } from './StateSchema';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { loginReducer } from 'features/AuthByUserName';
+import { createReducerManager } from './reducerManager';
 
 export const createReduxStore = (initialState: StateSchema) => {
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
-        loginForm: loginReducer
     };
 
+    const reducerManager = createReducerManager(rootReducers);
+
     const store = configureStore<StateSchema>({
-        reducer: rootReducers,
+        reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
     });
+
+    // @ts-expect-error because this code is testing a compiler I'm writing
+    store.reducerManager = reducerManager
 
     return store;
 };

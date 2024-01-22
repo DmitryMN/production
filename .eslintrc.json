@@ -41,6 +41,7 @@
         "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/space-before-function-paren": "off",
         "@typescript-eslint/consistent-type-exports": "off",
+        "@typescript-eslint/no-dynamic-delete": "off",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
         "react/display-name": "off",
