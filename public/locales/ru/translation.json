@@ -8,5 +8,6 @@
     "Logout": "Выход",
     "Authorization error": "Неверный логин или пароль",
     "Main": "Главная",
-    "About": "О нас"
+    "About": "О нас",
+    "Profile": "Профиль"
 }

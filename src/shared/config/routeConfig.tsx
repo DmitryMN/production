@@ -2,10 +2,12 @@ import React, { ReactNode } from 'react';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
+import { ProfilePage } from 'pages/ProfilePage';
 
 export enum AppRoutes {
     MAIN = '/',
     ABOUT = '/about',
+    PROFILE = '/profile',
     NOT_FOUND = '*'
 }
 
@@ -22,6 +24,10 @@ export const routeConfig: RouteConfigProps[] = [
     {
         path: AppRoutes.ABOUT,
         element: <AboutPage />
+    },
+    {
+        path: AppRoutes.PROFILE,
+        element: <ProfilePage />
     },
     {
         path: AppRoutes.NOT_FOUND,

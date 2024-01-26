@@ -8,7 +8,10 @@ import { AppLink, AppLinksTheme } from 'shared/ui/AppLink/AppLink';
 import { AppRoutes } from 'shared/config/routeConfig';
 import AboutIcon from 'shared/assets/icons/about.svg';
 import HomeIcon from 'shared/assets/icons/home.svg';
+import ProfileIcon from 'shared/assets/icons/profile.svg'
 import { useTranslation } from 'react-i18next';
+import { SidebarItemsList } from 'widgets/Sidebar/model/items';
+import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 
 interface SidebarProps {
   className?: string;
@@ -26,14 +29,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
     <div data-testid={'sidebar'} className={classNames(style.sidebar, { [style.collapsed]: collapsed }, [className])}>
       <Button className={style.collapseBtn} onClick={changeHandler}>{collapsed ? '>' : '<'}</Button>
       <div className={style.links}>
-        <AppLink theme={AppLinksTheme.PRIMARY} className={style.navLink} to={AppRoutes.MAIN}>
-          <HomeIcon className={style.icon} />
-          <p>{t('Main')}</p>
-        </AppLink>
-        <AppLink theme={AppLinksTheme.PRIMARY} className={style.navLink} to={AppRoutes.ABOUT}>
-          <AboutIcon className={style.icon} />
-          <p>{t('About')}</p>
-        </AppLink>
+        {SidebarItemsList.map((elem) => <SidebarItem key={elem.path} item={elem} collapsed={collapsed} />)}
       </div>
       <div className={style.switchersWrap}>
         <LangSwitcher className={style.switchLang} />

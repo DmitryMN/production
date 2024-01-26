@@ -40,7 +40,6 @@ const LoginForm: React.FC<LoginFormProps> = memo(({ className }: LoginFormProps)
     }, [dispatch]);
 
     const clickHandler = useCallback(() => {
-        console.log({ username });
         dispatch(loginByUsername({ username, password }));
     }, [dispatch, username, password]);
 

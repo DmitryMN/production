@@ -1,0 +1,27 @@
+.icon {
+    width: 30px;
+    height: 30px;
+    stroke: var(--inverted-color);
+    fill: var(--inverted-color);
+    margin-right: 10px;
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.navLink:hover {
+    opacity: 0.6;
+}
+
+.collapsed {
+    
+    p{
+        opacity: 0;
+        transition: 0.3s opacity;
+        width: 0;
+    }
+}

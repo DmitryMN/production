@@ -8,5 +8,6 @@
     "Logout": "Logout",
     "Authorization error": "Incorrect login or password",
     "Main": "Main",
-    "About": "About"
+    "About": "About",
+    "Profile": "Profile"
 }
