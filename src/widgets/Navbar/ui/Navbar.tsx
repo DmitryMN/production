@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import style from './Navbar.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { LoginModal } from 'features/AuthByUserName';
@@ -12,7 +12,7 @@ interface NavbarProps {
     className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const authData = useSelector(getAuthUserState);
     const dispatch = useAppDispatch();
@@ -28,18 +28,18 @@ export const Navbar = ({ className }: NavbarProps) => {
     }, [dispatch]);
 
     if (authData) {
-        console.log('render logout')
+        console.log('render logout');
         return (
-        <nav className={classNames(style.navbar, {}, [className])}>
-            <Button className={style.button} onClick={logoutHandler}>{t('Logout')}</Button>
-        </nav>
+            <nav className={classNames(style.navbar, {}, [className])}>
+                <Button className={style.button} onClick={logoutHandler}>{t('Logout')}</Button>
+            </nav>
         );
     }
-    console.log('render login')
+    console.log('render login');
     return (
         <nav className={classNames(style.navbar, {}, [className])}>
             <Button className={style.button} onClick={modalCloseHandler}>{t('Login')}</Button>
             <LoginModal isOpen={isOpen} modalClose={modalCloseHandler} />
         </nav>
     );
-};
+});

@@ -3,6 +3,7 @@ import { StateSchema } from './StateSchema';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
+import { profileReducer } from 'entities/Profile';
 
 export const createReduxStore = (initialState: StateSchema) => {
     const rootReducers: ReducersMapObject<StateSchema> = {

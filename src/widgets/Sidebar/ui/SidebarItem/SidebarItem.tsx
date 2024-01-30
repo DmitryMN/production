@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppLink, AppLinksTheme } from 'shared/ui/AppLink/AppLink';
 import { SidebarItemType } from 'widgets/Sidebar/model/items';
@@ -10,13 +10,13 @@ interface SidebarItemProps {
     collapsed: boolean;
 }
 
-export const SidebarItem: React.FC<SidebarItemProps> = ({ item, collapsed }) => {
+export const SidebarItem: React.FC<SidebarItemProps> = memo(({ item, collapsed }) => {
     const { t } = useTranslation();
-    
+
     return (
         <AppLink theme={AppLinksTheme.PRIMARY} className={classNames(style.navLink, { [style.collapsed]: collapsed }, [])} to={item.path}>
             <item.Icon className={style.icon} />
             <p>{t(item.text)}</p>
         </AppLink>
     );
-};
+});

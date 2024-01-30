@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import style from './Sidebar.module.scss';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { Button } from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { AppLink, AppLinksTheme } from 'shared/ui/AppLink/AppLink';
-import { AppRoutes } from 'shared/config/routeConfig';
-import AboutIcon from 'shared/assets/icons/about.svg';
-import HomeIcon from 'shared/assets/icons/home.svg';
-import ProfileIcon from 'shared/assets/icons/profile.svg'
-import { useTranslation } from 'react-i18next';
 import { SidebarItemsList } from 'widgets/Sidebar/model/items';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 
@@ -17,9 +11,8 @@ interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
+export const Sidebar: React.FC<SidebarProps> = memo(({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const { t } = useTranslation();
 
   const changeHandler = () => {
     setCollapsed((prev) => !prev);
@@ -37,4 +30,4 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
       </div>
     </div>
   );
-};
+});
