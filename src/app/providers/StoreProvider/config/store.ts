@@ -3,9 +3,10 @@ import { StateSchema } from './StateSchema';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
-import { profileReducer } from 'entities/Profile';
+import { instance } from 'shared/api/api';
+import { NavigateOptions, To } from 'react-router-dom';
 
-export const createReduxStore = (initialState: StateSchema) => {
+export const createReduxStore = (initialState: StateSchema, navigate?: (to: To, options?: NavigateOptions) => void) => {
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
@@ -17,6 +18,15 @@ export const createReduxStore = (initialState: StateSchema) => {
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
+        middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            thunk: {
+                extraArgument: {
+                    api: instance,
+                    navigate,
+                }
+            }
+        }),
     });
 
     // @ts-expect-error because this code is testing a compiler I'm writing
