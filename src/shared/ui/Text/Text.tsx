@@ -16,7 +16,7 @@ interface TextProps {
 
 export const Text: React.FC<TextProps> = ({ className, title, text, theme }) => {
     return (
-        <div className={classNames(style.wrap, { [style[theme]]: true }, [className])}>
+        <div className={classNames('', { [style[theme]]: true }, [className])}>
             {title && <p className={style.title}>{title}</p>}
             {text && <p className={style.text}>{text}</p>}
         </div>

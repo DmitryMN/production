@@ -21,13 +21,13 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({ reducers, re
 
     useEffect(() => {
         Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
-            store.reducerManager.add(name, reducer);
+            store.reducerManager?.add(name, reducer);
             dispatch({ type: `@INIT ${name} reducer` });
         });
         return () => {
             if (removeAutoUnmount) {
                 Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
-                    store.reducerManager.remove('loginForm');
+                    store.reducerManager?.remove(name);
                     dispatch({ type: `@DESTROY ${name} reducer` });
                 });
             }

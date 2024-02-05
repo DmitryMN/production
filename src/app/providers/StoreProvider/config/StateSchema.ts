@@ -1,4 +1,4 @@
-import { EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit';
+import { Dispatch, EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { CounterChema } from 'entities/Counter';
 import { ProfileChema } from 'entities/Profile';
@@ -34,5 +34,5 @@ export interface ThunkExtraArg {
 
 export interface ThunkConfig<T> {
     rejectValue: T;
-    extra: ThunkExtraArg;    
+    extra: ThunkExtraArg;
 }
