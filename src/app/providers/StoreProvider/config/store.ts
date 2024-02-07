@@ -1,4 +1,4 @@
-import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
+import { Reducer, ReducersMapObject, StateFromReducersMapObject, UnknownAction, configureStore } from '@reduxjs/toolkit';
 import { StateSchema } from './StateSchema';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
@@ -15,22 +15,22 @@ export const createReduxStore = (initialState: StateSchema, navigate?: (to: To, 
     const reducerManager = createReducerManager(rootReducers);
 
     const store = configureStore<StateSchema>({
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as Reducer,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-            thunk: {
-                extraArgument: {
-                    api: instance,
-                    navigate,
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: {
+                        api: instance,
+                        navigate,
+                    }
                 }
-            }
-        }),
+            }),
     });
 
     // @ts-expect-error because this code is testing a compiler I'm writing
-    store.reducerManager = reducerManager
+    store.reducerManager = reducerManager;
 
     return store;
 };

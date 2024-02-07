@@ -1,14 +1,7 @@
 .card {
-    margin: 25px auto;
     border: 1px solid;
-    max-width: 700px;
-    padding: 10px 20px;
-}
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 0px 20px 20px;
+    margin-top: 20px;
 }
 
 .data {
@@ -17,11 +10,18 @@
     max-width: 300px;
 }
 
-.button {
-    border-radius: 5px;
-    padding: 5px;
+.input {
+    margin-top: 20px;
 }
 
-.input {
-    margin-top: 10px;
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

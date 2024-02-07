@@ -2,6 +2,7 @@
     font: var(--font-l);
     color: var(--modal-c);
     margin: 0 0 5px;
+    text-align: center;
 }
 
 .text {
@@ -18,4 +19,16 @@
     .text {
         color: var(--red-dark);
     }
+}
+
+.left {
+    text-align: center;
+}
+
+.right {
+    text-align: center;
+}
+
+.center {
+    text-align: center;
 }

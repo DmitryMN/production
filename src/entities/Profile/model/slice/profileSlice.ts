@@ -13,6 +13,15 @@ const profileSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
+        changeReadonly: (state) => {
+            state.readonly = !state.readonly
+        },
+        updateProfile: (state, action: PayloadAction<Profile>) => {
+            state.data = {
+                ...state.data,
+                ...action.payload,
+            }
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchProfileData.pending, (state, action) => {
