@@ -18,8 +18,16 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({ className 
     const dispatch = useAppDispatch();
     const readonly = useSelector(getProfileReadonly);
 
-    const readonlyHandler = useCallback(() => {
-        dispatch(profileActions.changeReadonly());
+    const setReadonly = useCallback(() => {
+        dispatch(profileActions.setReadonly(false));
+    }, [dispatch]);
+
+    const cancelReadonly = useCallback(() => {
+        dispatch(profileActions.cancelReadonly());
+    }, [dispatch]);
+
+    const onSave = useCallback(() => {
+
     }, [dispatch]);
 
     return (
@@ -27,9 +35,14 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({ className 
             <Text title='Profile' />
             {
                 readonly ?
-                    (<Button onClick={readonlyHandler} className={style.button}>{t('Edit')}</Button>) :
-                    (<Button onClick={readonlyHandler} className={style.button}>{t('Cancel')}</Button>)
+                    (<Button onClick={setReadonly} className={style.button}>{t('Edit')}</Button>) :
+                    (
+                        <div>
+                            <Button style={{marginRight: '5px'}} onClick={cancelReadonly} className={style.button}>{t('Cancel')}</Button>
+                            <Button className={style.button} onClick={onSave}>{t('Save')}</Button>
+                        </div>
+                    )
             }
-        </div>
+        </div >
     );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ProfileCard, fetchProfileData, getProfileData, getProfileError, getProfileLoading, profileReducer, profileActions, getProfileReadonly } from 'entities/Profile';
+import { ProfileCard, fetchProfileData, getProfileError, getProfileLoading, profileReducer, profileActions, getProfileReadonly, getProfileForm } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -18,16 +18,26 @@ const initialReducer: ReducersList = {
 const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
     const dispatch = useAppDispatch();
     const isLoading = useSelector(getProfileLoading);
-    const profile = useSelector(getProfileData);
+    const profile = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
 
-    const changeFirstname = (firstname: string) => {
-        dispatch(profileActions.updateProfile({ firstname: firstname || '' }));
+    const changeFirstname = (value: string) => {
+        dispatch(profileActions.updateProfile({ firstname: value || '' }));
     };
 
-    const changeLastname = (lastname: string) => {
-        dispatch(profileActions.updateProfile({ lastname: lastname || '' }));
+    const changeLastname = (value: string) => {
+        dispatch(profileActions.updateProfile({ lastname: value || '' }));
+    };
+
+
+    const changeAge = (value: string) => {
+        dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+    };
+
+
+    const changeCity = (value: string) => {
+        dispatch(profileActions.updateProfile({ city: value || '' }));
     };
 
     useEffect(() => {
@@ -38,7 +48,16 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
         <DynamicModuleLoader reducers={initialReducer} removeAutoUnmount={true}>
             <div className={classNames(style.profile_page, {}, [className])}>
                 <ProfilePageHeader />
-                <ProfileCard profile={profile} isLoading={isLoading} error={error} changeFirstname={changeFirstname} changeLastname={changeLastname} readonly={readonly} />
+                <ProfileCard
+                    profile={profile}
+                    isLoading={isLoading}
+                    error={error}
+                    changeFirstname={changeFirstname}
+                    changeLastname={changeLastname}
+                    readonly={readonly}
+                    changeAge={changeAge}
+                    changeCity={changeCity}
+                />
             </div>
         </DynamicModuleLoader>
     );

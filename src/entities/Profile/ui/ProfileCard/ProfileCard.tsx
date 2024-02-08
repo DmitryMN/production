@@ -15,9 +15,11 @@ interface ProfileCardProps {
     readonly?: boolean;
     changeFirstname: (value?: string) => void;
     changeLastname: (value?: string) => void;
+    changeAge: (value?: string) => void;
+    changeCity: (value?: string) => void;
 }
 
-export const ProfileCard: React.FC<ProfileCardProps> = ({ className, profile, isLoading, error, readonly, changeFirstname, changeLastname }) => {
+export const ProfileCard: React.FC<ProfileCardProps> = ({ className, profile, isLoading, error, readonly, changeFirstname, changeLastname, changeAge, changeCity }) => {
     const { t } = useTranslation('profile');
 
 
@@ -48,6 +50,8 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ className, profile, is
             <div className={style.data}>
                 <Input value={profile?.firstname} placeHolder={'First name'} className={style.input} onChange={changeFirstname} readonly={readonly}/>
                 <Input value={profile?.lastname} placeHolder={'Last name'} className={style.input} onChange={changeLastname} readonly={readonly}/>
+                <Input value={profile?.age} placeHolder={'Age'} className={style.input} onChange={changeAge} readonly={readonly}/>
+                <Input value={profile?.city} placeHolder={'City'} className={style.input} onChange={changeCity} readonly={readonly}/>
             </div>
         </div>
     );

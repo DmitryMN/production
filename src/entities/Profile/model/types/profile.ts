@@ -13,6 +13,7 @@ export interface Profile {
 
 export interface ProfileChema {
     data?: Profile
+    form?: Profile
     isLoading: boolean
     error?: string
     readonly: boolean
