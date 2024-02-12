@@ -5,7 +5,7 @@ import style from './ProfilePageHeader.module.scss';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
-import { getProfileReadonly } from 'entities/Profile';
+import { getProfileReadonly, updateProfileData } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from 'entities/Profile';
 
@@ -27,7 +27,7 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({ className 
     }, [dispatch]);
 
     const onSave = useCallback(() => {
-
+        dispatch(updateProfileData())
     }, [dispatch]);
 
     return (

@@ -6,6 +6,7 @@ import { Input } from 'shared/ui/Input/Input';
 import style from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface ProfileCardProps {
     className?: string;
@@ -13,16 +14,31 @@ interface ProfileCardProps {
     isLoading?: boolean;
     error?: string;
     readonly?: boolean;
-    changeFirstname: (value?: string) => void;
-    changeLastname: (value?: string) => void;
-    changeAge: (value?: string) => void;
-    changeCity: (value?: string) => void;
+    changeFirstname?: (value?: string) => void;
+    changeLastname?: (value?: string) => void;
+    changeAge?: (value?: string) => void;
+    changeCity?: (value?: string) => void;
+    changeUsername?: (value?: string) => void;
+    changeAvatar?: (value?: string) => void;
 }
 
-export const ProfileCard: React.FC<ProfileCardProps> = ({ className, profile, isLoading, error, readonly, changeFirstname, changeLastname, changeAge, changeCity }) => {
+export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
+
+    const {
+        className,
+        profile,
+        isLoading,
+        error,
+        readonly,
+        changeFirstname,
+        changeLastname,
+        changeAge,
+        changeCity,
+        changeUsername,
+        changeAvatar
+    } = props;
+
     const { t } = useTranslation('profile');
-
-
 
     if (isLoading) {
         return (
@@ -48,10 +64,17 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ className, profile, is
     return (
         <div className={classNames(style.card, {}, [className])}>
             <div className={style.data}>
-                <Input value={profile?.firstname} placeHolder={'First name'} className={style.input} onChange={changeFirstname} readonly={readonly}/>
-                <Input value={profile?.lastname} placeHolder={'Last name'} className={style.input} onChange={changeLastname} readonly={readonly}/>
-                <Input value={profile?.age} placeHolder={'Age'} className={style.input} onChange={changeAge} readonly={readonly}/>
-                <Input value={profile?.city} placeHolder={'City'} className={style.input} onChange={changeCity} readonly={readonly}/>
+                {profile?.avatar && (
+                    <div className={style.avatar_wrapp}>
+                        <Avatar src={profile.avatar} alt={'some images'} size={150} />
+                    </div>
+                )}
+                <Input value={profile?.firstname} placeHolder={'First name'} className={style.input} onChange={changeFirstname} readonly={readonly} />
+                <Input value={profile?.lastname} placeHolder={'Last name'} className={style.input} onChange={changeLastname} readonly={readonly} />
+                <Input value={profile?.age} placeHolder={'Age'} className={style.input} onChange={changeAge} readonly={readonly} />
+                <Input value={profile?.city} placeHolder={'City'} className={style.input} onChange={changeCity} readonly={readonly} />
+                <Input value={profile?.username} placeHolder={'Username'} className={style.input} onChange={changeUsername} readonly={readonly} />
+                <Input value={profile?.avatar} placeHolder={'Avatar'} className={style.input} onChange={changeAvatar} readonly={readonly} />
             </div>
         </div>
     );

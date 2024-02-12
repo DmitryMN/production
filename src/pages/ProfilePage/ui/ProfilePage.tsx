@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { ProfileCard, fetchProfileData, getProfileError, getProfileLoading, profileReducer, profileActions, getProfileReadonly, getProfileForm } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -22,23 +22,29 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
 
-    const changeFirstname = (value: string) => {
+    const changeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ firstname: value || '' }));
-    };
+    }, [dispatch]);
 
-    const changeLastname = (value: string) => {
+    const changeLastname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ lastname: value || '' }));
-    };
+    }, [dispatch]);
 
-
-    const changeAge = (value: string) => {
+    const changeAge = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
-    };
+    }, [dispatch]);
 
-
-    const changeCity = (value: string) => {
+    const changeCity = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ city: value || '' }));
-    };
+    }, [dispatch]);
+
+    const changeUsername = useCallback((value: string) => {
+        dispatch(profileActions.updateProfile({ username: value || '' }));
+    }, [dispatch]);
+
+    const changeAvatar = useCallback((value: string) => {
+        dispatch(profileActions.updateProfile({ avatar: value || '' }));
+    }, [dispatch]);
 
     useEffect(() => {
         dispatch(fetchProfileData());
@@ -57,6 +63,8 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
                     readonly={readonly}
                     changeAge={changeAge}
                     changeCity={changeCity}
+                    changeUsername={changeUsername}
+                    changeAvatar={changeAvatar}
                 />
             </div>
         </DynamicModuleLoader>

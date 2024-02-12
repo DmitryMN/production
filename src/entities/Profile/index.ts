@@ -7,6 +7,7 @@ import { getProfileError } from './model/selectors/getProfileError/getProfileErr
 import { getProfileLoading } from './model/selectors/getProfileLoading/getProfileLoading';
 import { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
+import { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 
 export {
     Profile,
@@ -20,4 +21,5 @@ export {
     getProfileLoading,
     getProfileReadonly,
     getProfileForm,
+    updateProfileData,
 };
