@@ -1,4 +1,5 @@
-import { Country, Currency } from 'shared/const/common';
+import { Currency } from 'entities/Currency';
+import { Country } from 'shared/const/common';
 
 export interface Profile {
     firstname?: string;
@@ -12,9 +13,9 @@ export interface Profile {
 }
 
 export interface ProfileChema {
-    data?: Profile
-    form?: Profile
-    isLoading: boolean
-    error?: string
-    readonly: boolean
+    data?: Profile;
+    form?: Profile;
+    isLoading: boolean;
+    error?: string;
+    readonly: boolean;
 }

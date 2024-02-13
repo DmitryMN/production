@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { ChangeEvent, memo, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import style from './Select.module.scss';
+import { Currency } from 'entities/Currency';
 
 export interface SelectOption {
     value: string;
@@ -11,11 +12,13 @@ interface SelectProps {
     className?: string;
     label?: string;
     options?: SelectOption[];
-    value?: string;
+    value?: Currency;
+    disable?: boolean
     onChange?: (value: string) => void;
+    
 }
 
-export const Select: React.FC<SelectProps> = ({ className, label, options }) => {
+export const Select: React.FC<SelectProps> = memo(({ className, label, options, value, disable, onChange }) => {
 
     const optionsList = useMemo(() => {
         return options?.map((opt) => {
@@ -27,12 +30,16 @@ export const Select: React.FC<SelectProps> = ({ className, label, options }) => 
         });
     }, []);
 
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        onChange?.(e.target.value);
+    };
+
     return (
         <div className={classNames(style.select_wrapper, {}, [className])}>
-            {label && (<span className={style.label}>{label}</span>)}
-            <select>
+            {label && (<span className={style.label}>{label + ' => '}</span>)}
+            <select onChange={onChangeHandler} className={style.select} disabled={disable} value={value}>
                 {optionsList}
             </select>
         </div>
     );
-};
+});
