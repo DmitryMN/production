@@ -22,7 +22,7 @@ export const CurrencySelect: React.FC<CurrencySelectProps> = memo(({className, v
 
   const changeHandler = useCallback((value: string) => {
     const currency = value as Currency;
-    changeCurrency(currency)
+    changeCurrency(currency);
   }, [])
 
   return (

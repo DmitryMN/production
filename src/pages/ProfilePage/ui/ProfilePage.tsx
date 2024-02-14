@@ -7,6 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
 import style from './ProfilePage.module.scss';
 import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 
 interface ProfilePageProps {
     className?: string;
@@ -48,7 +49,11 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
     }, [dispatch]);
 
     const changeCurrency = useCallback((value: Currency) => {
-        dispatch(profileActions.updateProfile({ currency: value || '' }));
+        dispatch(profileActions.updateProfile({ currency: value }));
+    }, [dispatch]);
+
+    const changeCountry = useCallback((value: Country) => {
+        dispatch(profileActions.updateProfile({ country: value }));
     }, [dispatch]);
 
     useEffect(() => {
@@ -71,6 +76,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
                     changeUsername={changeUsername}
                     changeAvatar={changeAvatar}
                     changeCurrency={changeCurrency}
+                    changeCountry={changeCountry}
                 />
             </div>
         </DynamicModuleLoader>

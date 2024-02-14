@@ -1,7 +1,6 @@
 import React, { ChangeEvent, memo, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import style from './Select.module.scss';
-import { Currency } from 'entities/Currency';
 
 export interface SelectOption {
     value: string;
@@ -12,7 +11,7 @@ interface SelectProps {
     className?: string;
     label?: string;
     options?: SelectOption[];
-    value?: Currency;
+    value?: string;
     disable?: boolean
     onChange?: (value: string) => void;
     

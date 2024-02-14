@@ -9,6 +9,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
 import { Currency } from 'entities/Currency';
+import { Country, CountrySelect } from 'entities/Country';
 
 interface ProfileCardProps {
     className?: string;
@@ -23,6 +24,7 @@ interface ProfileCardProps {
     changeUsername?: (value?: string) => void;
     changeAvatar?: (value?: string) => void;
     changeCurrency?: (value?: Currency) => void
+    changeCountry?: (value?: Country) => void
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
@@ -39,7 +41,8 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
         changeCity,
         changeUsername,
         changeAvatar,
-        changeCurrency
+        changeCurrency,
+        changeCountry,
     } = props;
 
     const { t } = useTranslation('profile');
@@ -80,6 +83,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
                 <Input value={profile?.username} placeHolder={'Username'} className={style.input} onChange={changeUsername} readonly={readonly} />
                 <Input value={profile?.avatar} placeHolder={'Avatar'} className={style.input} onChange={changeAvatar} readonly={readonly} />
                 <CurrencySelect value={profile?.currency} changeCurrency={changeCurrency} className={style.currencySelect} readonly={readonly}/>
+                <CountrySelect value={profile?.country}  changeCountry={changeCountry} className={style.currencySelect} readonly={readonly}/>
             </div>
         </div>
     );
