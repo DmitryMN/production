@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { ProfileCard, fetchProfileData, getProfileError, getProfileLoading, profileReducer, profileActions, getProfileReadonly, getProfileForm } from 'entities/Profile';
+import { ProfileCard, fetchProfileData, getProfileError, getProfileLoading, profileReducer, profileActions, getProfileReadonly, getProfileForm, getProfileValidateErrors } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -8,6 +8,7 @@ import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/Profil
 import style from './ProfilePage.module.scss';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 interface ProfilePageProps {
     className?: string;
@@ -23,6 +24,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
     const profile = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
+    const validateError = useSelector(getProfileValidateErrors);
 
     const changeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ firstname: value || '' }));
@@ -64,6 +66,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
         <DynamicModuleLoader reducers={initialReducer} removeAutoUnmount={true}>
             <div className={classNames(style.profile_page, {}, [className])}>
                 <ProfilePageHeader />
+                { validateError?.length > 0 && validateError.map((vErr) => (<Text theme={TextTheme.ERROR} text={vErr}/>)) }
                 <ProfileCard
                     profile={profile}
                     isLoading={isLoading}
