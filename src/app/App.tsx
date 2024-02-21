@@ -6,11 +6,13 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { userActions } from 'entities/User';
+import { getUserAuthInited, userActions } from 'entities/User';
+import { useSelector } from 'react-redux';
 
 const App: React.FC<any> = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
+  const inited = useSelector(getUserAuthInited);
 
   useEffect(() => {
     dispatch(userActions.initAuthUser());
@@ -24,7 +26,9 @@ const App: React.FC<any> = () => {
           <Sidebar />
           <div className='main'>
             <div className='wrapper'>
-              <AppRouter />
+              {
+                inited && <AppRouter />
+              }
             </div>
           </div>
         </div>

@@ -14,6 +14,7 @@ export enum AppRoutes {
 export interface RouteConfigProps {
     path: AppRoutes
     element: ReactNode
+    authOnly?: boolean
 }
 
 export const routeConfig: RouteConfigProps[] = [
@@ -27,7 +28,8 @@ export const routeConfig: RouteConfigProps[] = [
     },
     {
         path: AppRoutes.PROFILE,
-        element: <ProfilePage />
+        element: <ProfilePage />,
+        authOnly: true,
     },
     {
         path: AppRoutes.NOT_FOUND,

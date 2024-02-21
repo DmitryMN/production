@@ -19,16 +19,6 @@ server.use(async (req, res, next) => {
     next();
 });
 
-server.use((req, res, next) => {
-    console.log('module auth')
-    if (!req.headers.authorization) {
-        return res.status(403).json({
-            message: 'Auth Error'
-        });
-    }
-    next();
-});
-
 // эндпоинт для логина
 server.post('/login', (req, res) => {
     const { username, password } = req.body;
@@ -46,6 +36,16 @@ server.post('/login', (req, res) => {
 
     return res.status(403).json({ message: 'Auth Error'})
 
+});
+
+server.use((req, res, next) => {
+    console.log('module auth')
+    if (!req.headers.authorization) {
+        return res.status(403).json({
+            message: 'Auth Error'
+        });
+    }
+    next();
 });
 
 server.use(router);

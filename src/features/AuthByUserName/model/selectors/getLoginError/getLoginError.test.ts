@@ -4,7 +4,9 @@ import { getLoginError } from './getLoginError';
 describe('getLoginError', () => {
     test('should return error', () => {
         const state: Partial<StateSchema> = {
-            user: {},
+            user: {
+                _inited: false,
+            },
             loginForm: {
                 username: 'Alex',
                 password: '123',
