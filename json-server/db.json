@@ -25,14 +25,67 @@
     {
       "id": 1,
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "username": "admin",
+      "password": "321",
+      "role": "USER"
     }
   ],
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "text": "some comment",
+      "articleId": 1,
+      "userId": "1"
+    },
+    {
+      "id": 2,
+      "text": "first comment",
+      "articleId": 1,
+      "userId": "2"
+    }
+  ],
+  "articles": [
+    {
+      "id": "1",
+      "title": "Javascript news",
+      "subtitle": "What's new in Javascript in 2023",
+      "img": "https://www.freecodecamp.org/news/content/images/size/w2000/2023/11/What-s-new.png",
+      "views": 100,
+      "createAt": "26.01.2023",
+      "type": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Some title this block",
+          "paragraphs": [
+            "Here, we are having an array of objects called inventory. And a myCallback function that is taking a quantity as a parameter and returning ok if the quantity is more than 5, or else returning restock."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "<!DOCTYPE html>\n<html>\n    <body>\n    <p id=\"hello\"></p>\n\n    <script>\n document.getElementById('hello').innerHTML='Hello, world!';\n </script>\n</body>\n</html>"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "Some title this block",
+          "title": "Image first screen site"
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const doSomething = () => {\n return ['Roger', 6] \n} \n const [ name, age ] = doSomething()\n console.log(name, age)"
+        }
+      ]
     }
   ],
   "profile": {
