@@ -44,9 +44,3 @@ export interface Article {
     type: ArticleTypes[];
     blocks: ArticleBlock[]
 }
-
-export interface ArticleChema {
-    data: Article[];
-    isLoading: boolean;
-    error?: string;
-}

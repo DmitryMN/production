@@ -1,5 +1,6 @@
 import { Dispatch, EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+import { ArticleDetailsChema } from 'entities/Article';
 import { CounterChema } from 'entities/Counter';
 import { ProfileChema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
@@ -12,6 +13,7 @@ export interface StateSchema {
     // async reducers
     loginForm?: LoginSchema;
     profile?: ProfileChema;
+    articleDetails?: ArticleDetailsChema
 }
 
 export type StateSchemaKey = keyof StateSchema;
