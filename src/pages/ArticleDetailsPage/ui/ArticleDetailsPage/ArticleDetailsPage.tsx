@@ -11,9 +11,13 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({ className }) =>
 
   const { id } = useParams();
 
+  if(!id) {
+    return (<div>Atricle not found</div>);
+  }
+
   return (
     <div className={classNames('', {}, [className])}>
-      <ArticleDetails id={'1'} />
+      <ArticleDetails id={id} />
     </div>
   );
 };

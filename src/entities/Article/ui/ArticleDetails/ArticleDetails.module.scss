@@ -1,0 +1,13 @@
+.article_details {
+    min-height: 100%;
+    padding: 30px 0 0 0;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.loading__avatar {
+    align-self: center;
+}
