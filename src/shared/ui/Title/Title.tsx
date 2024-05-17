@@ -1,33 +1,33 @@
 import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import style from './Text.module.scss';
+import style from './Title.module.scss';
 
-export enum TextTheme {
+export enum TitleTheme {
     PRIMARY = 'primary',
     ERROR = 'error'
 }
 
-export enum TextAlign {
+export enum TitleAlign {
     RIGHT = 'right',
     LEFT = 'left',
     CENTER = 'center'
 }
 
-export enum TextSize {
+export enum TitleSize {
     SMALL = 'small',
     MEDIUM = 'medium',
     LARGE = 'large'
 }
 
-interface TextProps {
+interface TitleProps {
     className?: string;
-    text?: string;
-    theme?: TextTheme;
-    align?: TextAlign;
-    size?: TextSize
+    title?: string;
+    theme?: TitleTheme;
+    align?: TitleAlign;
+    size?: TitleSize
 }
 
-export const Text: React.FC<TextProps> = memo(({ className, text, theme, align=TextAlign.LEFT, size=TextSize.MEDIUM }) => {
+export const Title: React.FC<TitleProps> = memo(({ className, title, theme, align=TitleAlign.LEFT, size=TitleSize.MEDIUM }) => {
     const mods = {
         [style[theme]]: true,
         [style[align]]: true,
@@ -35,8 +35,8 @@ export const Text: React.FC<TextProps> = memo(({ className, text, theme, align=T
     }
 
     return (
-        <p className={classNames(style.text, mods, [className])}>
-            {text}
+        <p className={classNames(style.title, mods, [className])}>
+            {title}
         </p>
     );
 });

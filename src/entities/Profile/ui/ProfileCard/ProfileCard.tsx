@@ -10,6 +10,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
 import { Currency } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+import { Title, TitleAlign, TitleTheme } from 'shared/ui/Title/Title';
 
 interface ProfileCardProps {
     className?: string;
@@ -23,8 +24,8 @@ interface ProfileCardProps {
     changeCity?: (value?: string) => void;
     changeUsername?: (value?: string) => void;
     changeAvatar?: (value?: string) => void;
-    changeCurrency?: (value?: Currency) => void
-    changeCountry?: (value?: Country) => void
+    changeCurrency?: (value?: Currency) => void;
+    changeCountry?: (value?: Country) => void;
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
@@ -58,9 +59,13 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
     if (error) {
         return (
             <div className={classNames(style.card, {}, [className, style.error])}>
+                <Title
+                    title={'Download profile error'} 
+                    theme={TitleTheme.ERROR}
+                    align={TitleAlign.CENTER}
+                />
                 <Text
                     theme={TextTheme.ERROR}
-                    title={'Download profile error'}
                     text={'Refresh window please'}
                     align={TextAlign.CENTER}
                 />
@@ -82,8 +87,8 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
                 <Input value={profile?.city} placeHolder={'City'} className={style.input} onChange={changeCity} readonly={readonly} />
                 <Input value={profile?.username} placeHolder={'Username'} className={style.input} onChange={changeUsername} readonly={readonly} />
                 <Input value={profile?.avatar} placeHolder={'Avatar'} className={style.input} onChange={changeAvatar} readonly={readonly} />
-                <CurrencySelect value={profile?.currency} changeCurrency={changeCurrency} className={style.currencySelect} readonly={readonly}/>
-                <CountrySelect value={profile?.country}  changeCountry={changeCountry} className={style.currencySelect} readonly={readonly}/>
+                <CurrencySelect value={profile?.currency} changeCurrency={changeCurrency} className={style.currencySelect} readonly={readonly} />
+                <CountrySelect value={profile?.country} changeCountry={changeCountry} className={style.currencySelect} readonly={readonly} />
             </div>
         </div>
     );

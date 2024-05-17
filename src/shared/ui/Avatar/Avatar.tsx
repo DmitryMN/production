@@ -13,7 +13,7 @@ export const Avatar: React.FC<AvatarProps> = ({ className, src, alt, size = 100 
     const styles = useMemo<CSSProperties>(() => {
         return {
             width: size,
-            height: size,
+            height: size,            
         };
     }, [size]);
 

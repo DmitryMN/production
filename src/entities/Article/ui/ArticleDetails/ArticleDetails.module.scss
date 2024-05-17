@@ -3,11 +3,19 @@
     padding: 30px 0 0 0;
 }
 
-.loading {
+.article__item {
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 10px;
 }
-.loading__avatar {
+
+.article__avatar {
     align-self: center;
+    object-fit: cover;
+}
+
+.article__icons {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
 }

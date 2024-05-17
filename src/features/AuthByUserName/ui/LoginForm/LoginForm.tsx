@@ -14,6 +14,7 @@ import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLogi
 import { getLoginIsloading } from '../../model/selectors/getLoginIsloading/getLoginIsloading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Title } from 'shared/ui/Title/Title';
 
 export interface LoginFormProps {
     className?: string;
@@ -46,7 +47,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(({ className }: LoginFormProps)
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAutoUnmount={true}>
             <div className={classNames(style.loginForm, {}, [className])}>
-                <Text title={t('Login')} />
+                <Title title={t('Login')}/>
                 {error && <Text text={error} theme={TextTheme.ERROR} />}
                 <Input value={username} onChange={userNameHandler} placeHolder={'*Username'} autoFocus={true} />
                 <Input value={password} onChange={passwordHandler} placeHolder={'*Password'} />

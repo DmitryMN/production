@@ -9,8 +9,13 @@ import { getArticleDetailsLoading } from 'entities/Article/model/selectors/getAr
 import { getArticleDetailsError } from 'entities/Article/model/selectors/getArtcileDetailsError/getArtcileDetailsError';
 import { getArticleDetailsData } from 'entities/Article/model/selectors/getArtcileDetailsData/getArtcileDetailsData';
 import style from './ArticleDetails.module.scss';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextTheme, TextSize } from 'shared/ui/Text/Text';
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import EyeIcon from 'shared/assets/icons/viewing.svg';
+import CalendarIcon from 'shared/assets/icons/calendar.svg';
+import { Title, TitleAlign, TitleTheme } from 'shared/ui/Title/Title';
+import { Icon } from 'shared/ui/Icon/Icon';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -35,22 +40,44 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(({ className, 
   let content;
 
   if (isLoading) {
-    content = (<div className={style.loading}>
-      <Sceleton className={style.loading__avatar} width={'200px'} height={'200px'} border='50%'/>
+    content = (<div className={style.article__item}>
+      <Sceleton className={style.article__avatar} width={'200px'} height={'200px'} border='50%' />
       <Sceleton width={'200px'} height={'32px'} />
       <Sceleton width={'200px'} height={'34px'} />
       <Sceleton width="100%" height={'200px'} />
       <Sceleton width="100%" height={'200px'} />
     </div>);
   } else if (error) {
-    content = (<Text
-      theme={TextTheme.ERROR}
-      title={'Download article details error'}
-      text={'Refresh window please'}
-      align={TextAlign.CENTER}
-    />);
+    content = (
+      <>
+        <Title
+          title={'Download article details error'}
+          theme={TitleTheme.ERROR}
+          align={TitleAlign.CENTER}
+        />
+        <Text
+          theme={TextTheme.ERROR}
+          text={'Refresh window please'}
+          align={TextAlign.CENTER}
+        />
+      </>
+    );
   } else {
-    content = (<div>Article details</div>);
+    content = (
+      <div className={style.article__item}>
+        <Avatar className={style.article__avatar} src={article?.img} alt={'avatar-image'} size={200} />
+        <Title title={article?.title} />
+        <Text text={article?.subtitle} size={TextSize.MEDIUM} />
+        <div className={style.article__icons}>
+          <Icon Svg={EyeIcon} />
+          <Text text={String(article?.views)} />
+        </div>
+        <div className={style.article__icons}>
+          <Icon Svg={CalendarIcon} />
+          <Text text={article?.createAt} />
+        </div>
+      </div>
+    );
   }
 
   return (

@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import { Button } from 'shared/ui/Button/Button';
-import { Text } from 'shared/ui/Text/Text';
 import style from './ProfilePageHeader.module.scss';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -8,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { getProfileReadonly, updateProfileData } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from 'entities/Profile';
+import { Title } from 'shared/ui/Title/Title';
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -32,7 +32,7 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({ className 
 
     return (
         <div className={classNames(style.header, {}, [className])}>
-            <Text title='Profile' />
+            <Title title='Profile'/>
             {
                 readonly ?
                     (<Button onClick={setReadonly} className={style.button}>{t('Edit')}</Button>) :

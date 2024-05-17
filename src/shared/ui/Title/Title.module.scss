@@ -1,11 +1,11 @@
-.text {
-    font: var(--font-text-m);
+.title {
+    font: var(--font-title-m);
     color: var(--modal-c);
     margin: 0;
 }
 
 .error {
-    color: var(--red-dark);
+    color: var(--red-light);
 }
 
 .left {
@@ -21,9 +21,9 @@
 }
 
 .medium {
-    font-size: var(--font-text-m);
+    font-size: var(--font-title-m);
 }
 
 .large {
-    font-size: var(--font-text-l);
+    font-size: var(--font-title-l);
 }
