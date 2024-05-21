@@ -1,13 +1,13 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailReducer } from '../../model/slice/articleSlice';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsLoading } from 'entities/Article/model/selectors/getArtcileDetailsLoading/getArtcileDetailsLoading';
-import { getArticleDetailsError } from 'entities/Article/model/selectors/getArtcileDetailsError/getArtcileDetailsError';
-import { getArticleDetailsData } from 'entities/Article/model/selectors/getArtcileDetailsData/getArtcileDetailsData';
+import { getArticleDetailsLoading } from '../../model/selectors/getArtcileDetailsLoading/getArtcileDetailsLoading';
+import { getArticleDetailsError } from '../../model/selectors/getArtcileDetailsError/getArtcileDetailsError';
+import { getArticleDetailsData } from '../../model/selectors/getArtcileDetailsData/getArtcileDetailsData';
 import style from './ArticleDetails.module.scss';
 import { Text, TextAlign, TextTheme, TextSize } from 'shared/ui/Text/Text';
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
@@ -16,6 +16,10 @@ import EyeIcon from 'shared/assets/icons/viewing.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { Title, TitleAlign, TitleTheme } from 'shared/ui/Title/Title';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleCodeBlock } from '../../ui/ArticleCodeBlock/ArticleCodeBlock';
+import { ArticleImageBlock } from '../../ui/ArticleImageBlock/ArticleImageBlock';
+import { ArticleTextBlock } from '../../ui/ArticleTextBlock/ArticleTextBlock';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -32,6 +36,19 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(({ className, 
   const isLoading = useSelector(getArticleDetailsLoading);
   const error = useSelector(getArticleDetailsError);
   const article = useSelector(getArticleDetailsData);
+
+  const renderBlock = useCallback((block: ArticleBlock) => {
+    switch (block.type) {
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlock key={block.id} block={block}/>;
+      case ArticleBlockType.IMAGE:
+        return <ArticleImageBlock key={block.id} block={block}/>;
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlock key={block.id} block={block}/>;
+      default:
+        return null;
+    }
+  }, []);
 
   useEffect(() => {
     dispatch(fetchArticleById(id));
@@ -76,6 +93,7 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(({ className, 
           <Icon Svg={CalendarIcon} />
           <Text text={article?.createAt} />
         </div>
+        {article?.blocks.map(renderBlock)}
       </div>
     );
   }
