@@ -13,7 +13,7 @@ interface ArticleCodeBlockProps {
 export const ArticleCodeBlock: React.FC<ArticleCodeBlockProps> = memo(({ className, block }) => {
     return (
         <div className={classNames(style.codeBlock, {}, [className])}>
-            <Code>{block.code}</Code>
+            <Code text={block.code} />
         </div>
     );
 });

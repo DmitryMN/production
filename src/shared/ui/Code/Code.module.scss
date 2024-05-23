@@ -1,3 +1,23 @@
 .code {
     color: var(--inverted-color);
+    position: relative;
+}
+.button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--bg-color);
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: var(--primary-color);
+    text-transform: lowercase;
+}
+
+.button:hover {
+    opacity: 0.6;
+}
+
+.icon {
+    position: relative;
+    top: 0.14em;
 }
