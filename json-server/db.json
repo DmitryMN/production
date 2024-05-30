@@ -26,13 +26,15 @@
       "id": 1,
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://images.provenexpert.com/b2/8e/a85c019fc10d8ebb84154882cda8/divvy-magazine_full_1583124985.jpg"
     },
     {
       "id": 2,
       "username": "admin",
       "password": "321",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://images.freeimages.com/365/images/istock/previews/9730/97305669-avatar-icon-of-girl-in-a-baseball-cap.jpg"
     }
   ],
   "comments": [

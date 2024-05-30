@@ -6,6 +6,7 @@ import { ProfileChema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUserName';
 import { NavigateOptions, To } from 'react-router-dom';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 
 export interface StateSchema {
     counter: CounterChema;
@@ -13,7 +14,8 @@ export interface StateSchema {
     // async reducers
     loginForm?: LoginSchema;
     profile?: ProfileChema;
-    articleDetails?: ArticleDetailsChema
+    articleDetails?: ArticleDetailsChema;
+    articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
