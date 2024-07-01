@@ -1,4 +1,4 @@
-import React, { Suspense, useCallback, useMemo } from 'react';
+import React, { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { AppRoutes, RouteConfigProps, routeConfig } from 'shared/config/routeConfig';
 import { PageLoader } from 'pages/PageLoader';
@@ -8,14 +8,14 @@ import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = () => {
     let auth = useSelector(getAuthUserState);
-    const routes = useMemo(() => {
-        return routeConfig.filter((route) => {
-            if (route.authOnly && !auth) {
-                return false;
-            }
-            return true;
-        });
-    }, [auth]);
+    // const routes = useMemo(() => {
+    //     return routeConfig.filter((route) => {
+    //         if (route.authOnly && !auth) {
+    //             return false;
+    //         }
+    //         return true;
+    //     });
+    // }, [auth]);
 
     const renderWrapper = useCallback((route: RouteConfigProps) => {
         return (

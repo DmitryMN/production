@@ -1,7 +1,7 @@
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -10,6 +10,8 @@ import { useSelector } from 'react-redux';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -17,7 +19,7 @@ interface ArticleDetailsPageProps {
 
 const initialReducer: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer
-}
+};
 
 const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({ className }) => {
 
@@ -27,11 +29,15 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({ className }) =>
   const isLoading = useSelector(getArticleCommentsIsLoading);
   const error = useSelector(getArticleCommentsError);
 
-  useEffect(() => {
-    dispatch(fetchCommentsByArticleId(id))
-  }, [dispatch, id])
+  const onSendAddComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text))
+  }, [dispatch]);
 
-  if (!id) {
+  useEffect(() => {
+    dispatch(fetchCommentsByArticleId(id));
+  }, [dispatch, id]);
+
+  if (!id) {  
     return (<div>Atricle not found</div>);
   }
 
@@ -40,7 +46,8 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({ className }) =>
       <div className={classNames('', {}, [className])}>
         <ArticleDetails id={id} />
         <Text text={'Comments:'} />
-        <CommentList comments={comments} isLoading={isLoading}/>
+        <AddCommentForm onSendComment={onSendAddComment}/>
+        <CommentList comments={comments} isLoading={isLoading} />
       </div>
     </DynamicModuleLoader>
   );

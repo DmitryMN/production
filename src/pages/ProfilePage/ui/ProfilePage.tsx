@@ -9,6 +9,7 @@ import style from './ProfilePage.module.scss';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useParams } from 'react-router-dom';
 
 interface ProfilePageProps {
     className?: string;
@@ -25,6 +26,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateError = useSelector(getProfileValidateErrors);
+    const { id } = useParams();
 
     const changeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ firstname: value || '' }));
@@ -59,14 +61,16 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
     }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={initialReducer} removeAutoUnmount={true}>
             <div className={classNames(style.profile_page, {}, [className])}>
-                <ProfilePageHeader />
-                { validateError?.length > 0 && validateError.map((vErr) => (<Text theme={TextTheme.ERROR} text={vErr}/>)) }
+                <ProfilePageHeader profileId={id} />
+                {validateError?.length > 0 && validateError.map((vErr) => (<Text theme={TextTheme.ERROR} text={vErr} />))}
                 <ProfileCard
                     profile={profile}
                     isLoading={isLoading}

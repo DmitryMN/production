@@ -1,9 +1,16 @@
 .card {
+    display: flex;
+    column-gap: 40px;
     width: 100%;
+    box-sizing: border-box;
     border: 1px solid;
     padding: 10px;
+    margin-bottom: 10px;
 }
 .profile {
     display: flex;
     column-gap: 10px;
+}
+.text {
+    margin: 0 auto;
 }

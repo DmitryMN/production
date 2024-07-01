@@ -23,18 +23,18 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://images.provenexpert.com/b2/8e/a85c019fc10d8ebb84154882cda8/divvy-magazine_full_1583124985.jpg"
+      "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671763_1-mykaleidoscope-ru-p-zloi-khaker-vkontakte-1.jpg"
     },
     {
-      "id": 2,
-      "username": "admin",
+      "id": "2",
+      "username": "user",
       "password": "321",
       "role": "USER",
-      "avatar": "https://images.freeimages.com/365/images/istock/previews/9730/97305669-avatar-icon-of-girl-in-a-baseball-cap.jpg"
+      "avatar": "https://avatars.mds.yandex.net/i?id=d1f7b1b40e5923195d4e3e87bf264cee03a36096-5707839-images-thumbs&n=13"
     }
   ],
   "comments": [
@@ -49,6 +49,18 @@
       "text": "first comment",
       "articleId": 1,
       "userId": "2"
+    },
+    {
+      "text": "test",
+      "articleId": "1",
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "text": "one moment",
+      "articleId": "1",
+      "userId": 1,
+      "id": 4
     }
   ],
   "articles": [
@@ -90,14 +102,28 @@
       ]
     }
   ],
-  "profile": {
-    "firstname": "Alex",
-    "lastname": "Bolduin",
-    "age": 34,
-    "currency": "RUB",
-    "country": "Kazakhstan",
-    "city": "Moscow",
-    "username": "zak",
-    "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671763_1-mykaleidoscope-ru-p-zloi-khaker-vkontakte-1.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Alex",
+      "lastname": "Bolduin",
+      "age": 34,
+      "currency": "RUB",
+      "country": "Kazakhstan",
+      "city": "Almaata",
+      "username": "bottt",
+      "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671763_1-mykaleidoscope-ru-p-zloi-khaker-vkontakte-1.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "Bob",
+      "lastname": "Konnor",
+      "age": 28,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "zak",
+      "avatar": "https://avatars.mds.yandex.net/i?id=d1f7b1b40e5923195d4e3e87bf264cee03a36096-5707839-images-thumbs&n=13"
+    }
+  ]
 }
