@@ -39,28 +39,22 @@
   ],
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "text": "some comment",
-      "articleId": 1,
+      "articleId": "1",
       "userId": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "text": "first comment",
-      "articleId": 1,
+      "articleId": "1",
       "userId": "2"
     },
     {
       "text": "test",
       "articleId": "1",
-      "userId": 1,
-      "id": 3
-    },
-    {
-      "text": "one moment",
-      "articleId": "1",
-      "userId": 1,
-      "id": 4
+      "userId": "1",
+      "id": "3"
     }
   ],
   "articles": [

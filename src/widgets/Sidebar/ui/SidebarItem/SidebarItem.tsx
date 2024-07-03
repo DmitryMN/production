@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppLink, AppLinksTheme } from 'shared/ui/AppLink/AppLink';
-import { SidebarItemType } from 'widgets/Sidebar/model/items';
+import { SidebarItemType } from '../../model/types/sidebar';
 import style from './SidebarItem.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
