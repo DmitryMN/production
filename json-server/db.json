@@ -62,6 +62,7 @@
       "id": "1",
       "title": "Javascript news",
       "subtitle": "What's new in Javascript in 2023",
+      "userId": "1",
       "img": "https://cdn.dribbble.com/users/2495677/screenshots/5039870/js-ninja-01.png",
       "views": 100,
       "createAt": "26.01.2023",
