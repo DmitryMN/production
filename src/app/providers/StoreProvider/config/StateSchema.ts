@@ -8,6 +8,7 @@ import { LoginSchema } from 'features/AuthByUserName';
 import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentSchema } from 'features/AddCommentForm';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
     counter: CounterChema;
@@ -18,6 +19,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsChema;
     articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: AddCommentSchema;
+    articlesPage?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

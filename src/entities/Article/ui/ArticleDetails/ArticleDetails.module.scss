@@ -20,3 +20,13 @@
     column-gap: 10px;
     align-items: center;
 }
+.btnBackList {
+    background-color: var(--inverted-bg);
+    padding: 5px;
+    width: 130px;
+    border-radius: 5px;
+    color: var(--inverted-color);
+}
+.btnBackList:hover{
+    opacity: 0.8;
+}

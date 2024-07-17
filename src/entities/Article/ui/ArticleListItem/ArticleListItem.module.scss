@@ -54,6 +54,7 @@
         .avatar {
             margin: 0 10px 0 0;
         }
+
         .username {
             flex-grow: 1;
             padding-right: 10px;
@@ -67,17 +68,27 @@
         margin: 15px 0;
     }
 
+    .textBlock {
+        max-height: 250px;
+        overflow-y: hidden;
+        margin-bottom: 10px;
+    }
+
     .footWrap {
         display: flex;
         align-items: center;
 
         .button {
             border-radius: 5px;
+            padding: 5px;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
         }
+
         .views {
             flex-grow: 1;
             text-align: end;
             padding-right: 10px;
         }
     }
-} 
+}

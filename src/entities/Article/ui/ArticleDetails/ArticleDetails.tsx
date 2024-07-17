@@ -20,6 +20,9 @@ import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { ArticleCodeBlock } from '../../ui/ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../../ui/ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../../ui/ArticleTextBlock/ArticleTextBlock';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { AppRoutes } from 'shared/config/routeConfig';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -36,6 +39,11 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(({ className, 
   const isLoading = useSelector(getArticleDetailsLoading);
   const error = useSelector(getArticleDetailsError);
   const article = useSelector(getArticleDetailsData);
+  const navigate = useNavigate();
+
+  const onBackArticles = useCallback(() => {
+    navigate(AppRoutes.ARTICLES)
+  }, [navigate])
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
@@ -82,6 +90,7 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(({ className, 
   } else {
     content = (
       <div className={style.article__item}>
+        <Button className={style.btnBackList}  theme={ThemeButton.CLEAR} onClick={onBackArticles}>Back to list..</Button>
         <Avatar className={style.article__avatar} src={article?.img} alt={'avatar-image'} size={200} />
         <Title title={article?.title} />
         <Text text={article?.subtitle} size={TextSize.MEDIUM} />
