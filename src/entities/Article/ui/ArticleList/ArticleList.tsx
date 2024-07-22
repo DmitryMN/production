@@ -17,7 +17,7 @@ const getSceleton = (view: ArticleView) => {
 };
 
 
-export const ArticleList: React.FC<ArticleListProps> = ({ className, articles, isLoading, view = ArticleView.LIST }) => {
+export const ArticleList: React.FC<ArticleListProps> = ({ className, articles, isLoading, view }) => {
 
     if (isLoading) {
         return (

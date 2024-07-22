@@ -101,6 +101,82 @@
           "code": "const doSomething = () => {\n return ['Roger', 6] \n} \n const [ name, age ] = doSomething()\n console.log(name, age)"
         }
       ]
+    },
+    {
+      "id": "2",
+      "title": "Python news",
+      "subtitle": "What's new in python in 2023",
+      "userId": "1",
+      "img": "https://office-guru.ru/wp-content/uploads/2021/08/python.png",
+      "views": 100,
+      "createAt": "26.01.2023",
+      "type": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Some title this block",
+          "paragraphs": [
+            "Here, we are having an array of objects called inventory. And a myCallback function that is taking a quantity as a parameter and returning ok if the quantity is more than 5, or else returning restock."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "<!DOCTYPE html>\n<html>\n    <body>\n    <p id=\"hello\"></p>\n\n    <script>\n document.getElementById('hello').innerHTML='Hello, world!';\n </script>\n</body>\n</html>"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://sun9-65.userapi.com/c638729/v638729533/c036/f3B7DJ8Ep0o.jpg",
+          "title": "Picture 1 - image one"
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const doSomething = () => {\n return ['Roger', 6] \n} \n const [ name, age ] = doSomething()\n console.log(name, age)"
+        }
+      ]
+    },
+        {
+      "id": "3",
+      "title": "Ruby news",
+      "subtitle": "What's new in ruby in 2023",
+      "userId": "1",
+      "img": "https://myeditor.ru/wp-content/uploads/9/9/0/9907424ace9070434e5c6099088102b7.png",
+      "views": 100,
+      "createAt": "26.01.2023",
+      "type": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Some title this block",
+          "paragraphs": [
+            "Here, we are having an array of objects called inventory. And a myCallback function that is taking a quantity as a parameter and returning ok if the quantity is more than 5, or else returning restock."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "<!DOCTYPE html>\n<html>\n    <body>\n    <p id=\"hello\"></p>\n\n    <script>\n document.getElementById('hello').innerHTML='Hello, world!';\n </script>\n</body>\n</html>"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://sun9-65.userapi.com/c638729/v638729533/c036/f3B7DJ8Ep0o.jpg",
+          "title": "Picture 1 - image one"
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const doSomething = () => {\n return ['Roger', 6] \n} \n const [ name, age ] = doSomething()\n console.log(name, age)"
+        }
+      ]
     }
   ],
   "profile": [
