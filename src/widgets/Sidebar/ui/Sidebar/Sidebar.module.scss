@@ -1,7 +1,9 @@
 .sidebar {
-    position: relative;
-    // height: calc(100vh - var(--navbar-height));
-    width: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 20px;
+    height: calc(100vh - var(--navbar-height));
+    width: 300px;
     background-color: var(--inverted-bg);
     transition: width 0.4s;
 }
@@ -21,16 +23,16 @@
 }
 
 .collapseBtn {
-    position: absolute;
-    right: -21px;
     border: none;
-    background-color: var(--inverted-bg);
+    background-color: var(--inverted-color);
+    width: 20px;
+    padding: 3px;
+    border-radius: 5px;
 }
 
 .links {
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
 }
 
 .collapsed {

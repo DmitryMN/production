@@ -26,8 +26,8 @@ const articleViewItems = [
 
 export const ArticlesViewSelector: React.FC<ArticlesViewSelectorProps> = ({ className, view, onViewClick }) => {
 
-    const onChangeView = (newWiew: ArticleView) => () => {
-        onViewClick(newWiew);
+    const onChangeView = (newView: ArticleView) => () => {
+        onViewClick(newView);
     }
 
     return (

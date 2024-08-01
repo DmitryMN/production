@@ -21,15 +21,15 @@ export const Sidebar: React.FC<SidebarProps> = memo(({ className }) => {
   };
 
   return (
-    <div data-testid={'sidebar'} className={classNames(style.sidebar, { [style.collapsed]: collapsed }, [className])}>
-      <Button className={style.collapseBtn} onClick={changeHandler}>{collapsed ? '>' : '<'}</Button>
+    <menu data-testid={'sidebar'} className={classNames(style.sidebar, { [style.collapsed]: collapsed }, [className])}>
       <div className={style.links}>
         {sidebarItemsList.map((elem) => <SidebarItem key={elem.path} item={elem} collapsed={collapsed} />)}
       </div>
+      <Button className={style.collapseBtn} onClick={changeHandler}>{collapsed ? '>' : '<'}</Button>
       <div className={style.switchersWrap}>
         <LangSwitcher className={style.switchLang} />
         <ThemeSwitcher />
       </div>
-    </div>
+    </menu>
   );
 });
