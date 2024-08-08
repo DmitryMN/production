@@ -15,14 +15,19 @@ interface DynamicModuleLoaderProps {
     children: React.ReactNode;
 }
 
-export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({ reducers, removeAutoUnmount, children }) => {
+export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({ reducers, removeAutoUnmount = true, children }) => {
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useDispatch();
 
     useEffect(() => {
+        const keys = Object.keys(store.reducerManager.getReducerMap());
+        console.log("key: " + (keys));
         Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
-            store.reducerManager?.add(name, reducer);
-            dispatch({ type: `@INIT ${name} reducer` });
+            if (!keys.includes(name)) {
+                store.reducerManager?.add(name, reducer);
+                dispatch({ type: `@INIT ${name} reducer` });
+            }
+            console.log('reducer name: ' + name);
         });
         return () => {
             if (removeAutoUnmount) {

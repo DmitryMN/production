@@ -17,6 +17,7 @@ const initState = articlesAdapter.getInitialState<ArticlesPageSchema>({
     hasMore: true,
     page: 1,
     limit: 4,
+    _init: false,
     ids: [],
     entities: {}
 })
@@ -33,6 +34,7 @@ const articlesPageSlice = createSlice({
             const view = localStorage.getItem(ARTICLES_VIEW_KEY) as ArticleView
             state.view = view;
             state.limit = view === ArticleView.LIST ? 4 : 9;
+            state._init = true;
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
