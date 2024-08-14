@@ -9,10 +9,12 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 
 export interface StateSchema {
     counter: CounterChema;
     user: UserSchema;
+    scrollRestoration: ScrollRestorationSchema;
     // async reducers
     loginForm?: LoginSchema;
     profile?: ProfileChema;

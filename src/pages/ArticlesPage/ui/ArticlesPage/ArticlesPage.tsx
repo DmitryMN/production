@@ -11,7 +11,7 @@ import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/g
 import { ArticlesViewSelector } from 'features/ArticlesViewSelector/ArticlesViewSelector';
 import { getArticlesPagePage } from '../../model/selectors/getArticlesPagePage/getArticlesPagePage';
 import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { getArticlesPageInit } from '../../model/selectors/getArticlesPageInit/getArticlesPageInit';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';

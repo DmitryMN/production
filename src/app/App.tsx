@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, UIEvent } from 'react';
 import './styles/_index.scss';
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -25,11 +25,9 @@ const App: React.FC<any> = () => {
         <div className='content-page'>
           <Sidebar />
           <div className='main'>
-            <div className='wrapper'>
-              {
-                inited && <AppRouter />
-              }
-            </div>
+            {
+              inited && <AppRouter />
+            }
           </div>
         </div>
       </Suspense>

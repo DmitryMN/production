@@ -1,6 +1,6 @@
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
-import React from 'react';
+import React, { UIEvent } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import style from './ArticleList.module.scss';
 import { ArticleListItemSceleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSceleton';
@@ -22,11 +22,11 @@ export const ArticleList: React.FC<ArticleListProps> = ({ className, articles, i
     if (isLoading) {
         return (
             <div className={classNames(style[view], {}, [className])}>
-            {
-                getSceleton(view)
-            }
-        </div>
-        )
+                {
+                    getSceleton(view)
+                }
+            </div>
+        );
     }
 
     return (

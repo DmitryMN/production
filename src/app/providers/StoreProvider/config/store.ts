@@ -4,11 +4,13 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
 import { instance } from 'shared/api/api';
+import { scrollRestorationReducer } from 'features/ScrollRestoration';
 
 export const createReduxStore = (initialState: StateSchema) => {
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
+        scrollRestoration: scrollRestorationReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);

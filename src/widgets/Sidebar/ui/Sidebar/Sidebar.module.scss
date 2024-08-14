@@ -1,8 +1,7 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    padding: 0 0 0 20px;
-    height: calc(100vh - var(--navbar-height));
+    padding: 0 20px 0 20px;
     width: 300px;
     background-color: var(--inverted-bg);
     transition: width 0.4s;
