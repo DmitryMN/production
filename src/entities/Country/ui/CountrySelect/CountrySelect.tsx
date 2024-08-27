@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 
-const allCountry: SelectOption[] = [
+const allCountry: SelectOption<string>[] = [
     { value: Country.RUSSIA, content: Country.RUSSIA },
     { value: Country.BELARUS, content: Country.BELARUS },
     { value: Country.KAZAKHSTAN, content: Country.KAZAKHSTAN },

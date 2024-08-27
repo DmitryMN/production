@@ -1,0 +1,15 @@
+.articlesPageFilters {
+    width: 100%;
+    padding: 20px 0;
+}
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search {
+    margin-top: 10px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--inverted-bg);
+}

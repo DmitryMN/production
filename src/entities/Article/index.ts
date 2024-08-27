@@ -1,4 +1,4 @@
-import { Article, ArticleView, ArticleTypes, ArticleBlockType } from './model/types/article';
+import { Article, ArticleView, ArticleTypes, ArticleBlockType, ArticleSortField } from './model/types/article';
 import { articleDetailActions, articleDetailReducer } from './model/slice/articleSlice';
 import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 import { ArticleDetailsChema } from './model/types/articleDetailsChema';
@@ -13,6 +13,7 @@ export {
     ArticleView,
     ArticleList,
     ArticleTypes,
+    ArticleSortField,
     ArticleBlockType,
     articleDetailActions,
     articleDetailReducer,
